@@ -31,16 +31,34 @@ namespace HowMuchMoney
             for (int i = 0; i < howMany; i++)
             {
                 myCoins[i] = coins[RandomNumber.Next(0, 4)];
-                Console.Write(myCoins[i] + ' ');
+                //Console.Write(myCoins[i] + ' ');
             }
             Console.WriteLine();
             return myCoins;
         }
 
-        public int HowMuch( string[] allTheCoins)
+        public decimal HowMuch(string[] allTheCoins)
         {
-            int total = 0;
+            decimal total = 0;
 
+            foreach (string coin in allTheCoins)
+            {
+                switch(coin)
+                {
+                    case "penny":
+                        total+= .01m;
+                        break;
+                    case "nickel":
+                        total += .05m;
+                        break;
+                    case "dime":
+                        total += .10m;
+                        break;
+                    case "quarter":
+                        total += .25m;
+                        break;
+                }
+            }
             return total;
         }
     }
